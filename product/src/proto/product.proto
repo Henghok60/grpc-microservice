@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package product;
+
+service ProductService {
+    rpc findProductById (FindById) returns (Product);
+    rpc findCategoryById (FindById) returns (Category);
+
+}
+
+message Product {
+    int32 id=1;
+}
+
+message Category {
+    int32 id=1;
+}
+
+
+message FindById {
+    int32 id=1;
+}
