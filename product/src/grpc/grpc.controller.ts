@@ -1,25 +1,31 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod, MessagePattern, Payload } from '@nestjs/microservices';
 import {
-  ProductServiceControllerMethods,
   ProductServiceController,
   Category,
   FindById,
-  Product,
+  PRODUCT_SERVICE_NAME,
+  ProductServiceControllerMethods,
 } from 'src/proto/product';
 import { Observable } from 'rxjs';
+import { ProductService } from 'src/product/product.service';
+import { CategoryService } from 'src/category/category.service';
 
-@ProductServiceControllerMethods()
 @Controller()
+@ProductServiceControllerMethods()
 export class GrpcController implements ProductServiceController {
-  findProductById(
-    request: FindById,
-  ): Product | Observable<Product> | Promise<Product> {
-    throw new Error('Method not implemented.');
+  constructor(
+    private productService: ProductService,
+    private categoryService: CategoryService,
+  ) {}
+  findProductById(request: FindById): any {
+    return this.productService.findOne(request.id);
   }
+
+  // @GrpcMethod(PRODUCT_SERVICE_NAME, 'findCategoryById')
   findCategoryById(
     request: FindById,
   ): Category | Observable<Category> | Promise<Category> {
-    throw new Error('Method not implemented.');
+    return this.categoryService.findOne(request.id);
   }
 }

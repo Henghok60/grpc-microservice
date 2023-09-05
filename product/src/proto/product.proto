@@ -5,18 +5,23 @@ package product;
 service ProductService {
     rpc findProductById (FindById) returns (Product);
     rpc findCategoryById (FindById) returns (Category);
-
 }
 
 message Product {
-    int32 id=1;
+    string name = 1;
+    double price = 2;
+    int32 qty = 3;
+    string desc = 4;
+    string categoryId = 5; // Assuming categoryId is a string representation of an ObjectId
+    string brandId = 6;     // Assuming brandId is a string representation of an ObjectId
+    int32 imageId = 7;
 }
 
 message Category {
-    int32 id=1;
+    string name = 1;
+    int32 imageId = 2;
 }
 
-
 message FindById {
-    int32 id=1;
+    string id=1;
 }

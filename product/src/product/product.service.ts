@@ -11,16 +11,4 @@ export class ProductService extends BaseService<ProductDocument> {
   ) {
     super(productModel);
   }
-
-  findAll(): Promise<
-    (Document<unknown, Product> & Product & { _id: Types.ObjectId })[]
-  > {
-    return this.productModel.find().populate(['categoryId', 'brandId']);
-  }
-
-  findOne(
-    id: string,
-  ): Promise<Document<unknown, Product> & Product & { _id: Types.ObjectId }> {
-    return this.productModel.findById(id).populate('categoryId').exec();
-  }
 }

@@ -4,10 +4,9 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { CategoryModule } from './category/category.module';
 import { MongooseModule } from '@nestjs/mongoose';
-// import { GrpcModule } from './grpc/grpc.module';
 import { ProductModule } from './product/product.module';
-import { APP_PIPE } from '@nestjs/core';
 import { BrandModule } from './brand/brand.module';
+import { GrpcModule } from './grpc/grpc.module';
 
 @Module({
   imports: [
@@ -20,7 +19,7 @@ import { BrandModule } from './brand/brand.module';
         username: process.env.DATABASE_PASSWORD,
       },
     }),
-    // GrpcModule,
+    GrpcModule,
     ProductModule,
     BrandModule,
   ],

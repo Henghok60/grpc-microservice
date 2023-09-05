@@ -61,7 +61,7 @@ $ yarn run test:cov
 ## Generate pb from Proto file
 
 ```
-$ protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/grpc --ts_proto_opt=nestJs=true ./src/grpc/product.proto
+$ protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=. --ts_proto_opt=nestJs=true ./src/proto/product.proto
 ```
 
 ## Support

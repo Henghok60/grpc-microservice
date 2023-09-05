@@ -5,15 +5,24 @@ import { Observable } from "rxjs";
 export const protobufPackage = "product";
 
 export interface Product {
-  id: number;
+  name: string;
+  price: number;
+  qty: number;
+  desc: string;
+  /** Assuming categoryId is a string representation of an ObjectId */
+  categoryId: string;
+  /** Assuming brandId is a string representation of an ObjectId */
+  brandId: string;
+  imageId: number;
 }
 
 export interface Category {
-  id: number;
+  name: string;
+  imageId: number;
 }
 
 export interface FindById {
-  id: number;
+  id: string;
 }
 
 export const PRODUCT_PACKAGE_NAME = "product";
