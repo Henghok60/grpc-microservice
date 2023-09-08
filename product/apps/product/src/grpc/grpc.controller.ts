@@ -1,15 +1,14 @@
 import { Controller } from '@nestjs/common';
-import { GrpcMethod, MessagePattern, Payload } from '@nestjs/microservices';
 import {
   ProductServiceController,
   Category,
   FindById,
   PRODUCT_SERVICE_NAME,
   ProductServiceControllerMethods,
-} from 'src/proto/product';
+} from '../proto/product';
 import { Observable } from 'rxjs';
-import { ProductService } from 'src/product/product.service';
-import { CategoryService } from 'src/category/category.service';
+import { ProductService } from '../product/product.service';
+import { CategoryService } from '../category/category.service';
 
 @Controller()
 @ProductServiceControllerMethods()

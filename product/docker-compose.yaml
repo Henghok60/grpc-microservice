@@ -10,6 +10,14 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+  db:
+    image: postgres
+    container_name: 'postgresDB'
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: root
 volumes:
   mongoData:
     name: mongo
